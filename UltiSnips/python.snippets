@@ -1,0 +1,19 @@
+priority 1
+snippet setuptools-cli "Setup a cli module" b
+from setuptools import setup
+
+
+setup(
+    name='${1:name}',
+    version='$2',
+    py_modules=['${1:version}'],
+    install_requires=[
+        'Click',
+        $0
+    ],
+    entry_points='''
+    [console_scripts]
+    ${1:cmd}=${1:package}:cli
+    '''
+)
+endsnippet
