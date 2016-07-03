@@ -5,15 +5,15 @@ from setuptools import setup
 
 setup(
     name='${1:name}',
-    version='$2',
-    py_modules=['${1:version}'],
+    version='${2:1.0}',
+    py_modules=['$1'],
     install_requires=[
         'Click',
         $0
     ],
     entry_points='''
     [console_scripts]
-    ${1:cmd}=${1:package}:cli
+    $1=$1:cli
     '''
 )
 endsnippet
