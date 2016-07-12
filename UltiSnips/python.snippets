@@ -1,15 +1,15 @@
 priority 1
-snippet setuptools-cli "Setup a cli module" b
-from setuptools import setup
+snippet clicksetup "Setup a click package" b
+from setuptools import setup, find_packages
 
 
 setup(
-    name='${1:name}',
-    version='${2:1.0}',
-    py_modules=['$1'],
+    name='${1:`!p snip.rv = os.path.basename(os.path.dirname(os.path.abspath(path)))`}',
+    version='${2:0.1}',
+    include_package_data=True,
+    packages=find_packages(),
     install_requires=[
-        'Click',
-        $0
+        'Click',$0
     ],
     entry_points='''
     [console_scripts]
